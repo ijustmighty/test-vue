@@ -1,14 +1,21 @@
-import { createStore } from 'vuex'
+// src/store/index.js
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-  },
-  getters: {
+    formData: null,
   },
   mutations: {
+    setFormData(state, data) {
+      state.formData = data;
+    },
   },
   actions: {
+    saveFormData({ commit }, data) {
+      commit('setFormData', data);
+    },
   },
-  modules: {
-  }
-})
+  getters: {
+    getFormData: (state) => state.formData,
+  },
+});
